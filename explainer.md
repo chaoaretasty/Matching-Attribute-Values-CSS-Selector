@@ -149,7 +149,7 @@ _ex 6_
 [data-view] { display: none; }
 
 [data-active-view] {
-  --active-view: attr(data-lol);
+  --active-view: attr(data-active-view);
 }
 
 [data-active-view]:var(--active-view) [data-view=var(--active-view)] {

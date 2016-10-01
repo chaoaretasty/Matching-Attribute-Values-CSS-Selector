@@ -70,7 +70,7 @@ _[proposed by @rodneyrehm](https://discourse.wicg.io/t/selecting-matching-attrib
 #### 1.
 This example defines a placeholder variable (in this case `@value`) to act as the value for the attributes `data-selected-value` & `data-value`.
 
-This is the shortest syntax proposal, but it introduces a new usage for the `@` symbol which could be confusing for developers. It also creates a new variable-like syntax in css which differs from css already-existing variable syntax.
+This is the shortest syntax proposal, but it introduces a new usage for the `@` symbol which could be confusing for developers. It also creates a new variable-like syntax in css which differs from css's already-existing variable syntax.
 
 #### 2.
 This exposes the feature as a pseudo-class, which feels like a good fit. However, it targets an arbitrary parent element & parent element selection in CSS doesn't exist yet.

@@ -19,14 +19,14 @@ _ex 1_
 In _ex 1_, we can already target the matching element with this selector string:
 
 _ex 2_
-``` css
+``` CSS
 [data-selected-value="1"] [data-value="1"] {}
 ```
 
 However, the syntax gets very clunky very quickly when we want other child elements to be selected by changing `data-selected-value` in js.
 
 _ex 3_
-``` css
+``` CSS
 [data-selected-value="1"] [data-value="1"],
 [data-selected-value="2"] [data-value="2"],
 [data-selected-value="3"] [data-value="3"] {}
@@ -40,54 +40,54 @@ Instead of needing to explicitly state every possible selection option like in _
 
 ### Proposed syntax
 
-These are some syntax methods proposed over in [discourse.wicg.io/t/1687](https://discourse.wicg.io/t/selecting-matching-attribute-values-in-css/1687). The given examples have been changed to work with the structure of _ex 1_.
+These are some syntax methods proposed over in [discourse.wicg.io/t/1687](https://discourse.wicg.io/t/selecting-matching-attribute-values-in-CSS/1687). The given examples have been changed to work with the structure of _ex 1_.
 
 #### 1.
-``` css
+``` CSS
 [data-selected-value=@value] [data-value=@value] {}
 ```
-_[proposed by @tvler](https://discourse.wicg.io/t/selecting-matching-attribute-values-in-css/1687)_
+_[proposed by @tvler](https://discourse.wicg.io/t/selecting-matching-attribute-values-in-CSS/1687)_
 
 #### 2.
-``` css
+``` CSS
 :matches-ancestor-attribute(data-value, data-selected-value) {}
 ```
-_[proposed by @rodneyrehm](https://discourse.wicg.io/t/selecting-matching-attribute-values-in-css/1687/11)_
+_[proposed by @rodneyrehm](https://discourse.wicg.io/t/selecting-matching-attribute-values-in-CSS/1687/11)_
 
 #### 3.
 
-``` css
+``` CSS
 [data-selected-value] {
   --selected-value: attr(data-selected-value);
 }
 
 [data-value=var(--selected-value)] {}
 ```
-_[proposed by @rodneyrehm](https://discourse.wicg.io/t/selecting-matching-attribute-values-in-css/1687/11)_
+_[proposed by @rodneyrehm](https://discourse.wicg.io/t/selecting-matching-attribute-values-in-CSS/1687/11)_
 
 ### Review of the syntax
 
 #### 1.
 This example defines a placeholder variable (in this case `@value`) to act as the value for the attributes `data-selected-value` & `data-value`.
 
-This is the shortest syntax proposal, but it introduces a new usage for the `@` symbol which could be confusing for developers. It also creates a new variable-like syntax in css which differs from CSS's already-existing variable syntax.
+This is the shortest syntax proposal, but it introduces a new usage for the `@` symbol which could be confusing for developers. It also creates a new variable-like syntax in CSS which differs from CSS's already-existing variable syntax.
 
 #### 2.
 This exposes the feature as a pseudo-class, which feels like a good fit. However, it targets an arbitrary parent element & parent element selection in CSS doesn't exist yet.
 
 #### 3.
-This is my favorite solution. It's simple & fits in with already-existing css features (attribute selectors & css variables).
+This is my favorite solution. It's simple & fits in with already-existing CSS features (attribute selectors & CSS variables).
 
 There are 2 current problems with this syntax though.
 
 (1) The value of `attr(data-selected-value)` for `[data-selected-value]` isn't inherited by it's child elements – the actual string "attr(data-selected-value)" is passed down, which would produce a different value than expected if we were to infer that the scope of a variable value in a selector string would be its target elements.
 
-(2) The css variable spec would need to be extended to allow variables to be called within a selector string.
+(2) The CSS variable spec would need to be extended to allow variables to be called within a selector string.
 
 ## Final Solution
 I currently think that syntax proposal 3 is the best fit for this feature. Here's a way to fix problem (1) I brought up in my review:
 
-``` css
+``` CSS
 [data-selected-value] {
   --selected-value: attr(data-selected-value);
 }
@@ -97,7 +97,7 @@ I currently think that syntax proposal 3 is the best fit for this feature. Here'
 
 The newly proposed pseudo-class `var` would expose the computed value of its parameter within the selector string, making any use of `var(--selected-value)` equal `1`, in the case of my given example.
 
-Extending css variables so they can be called outside of a CSS block can not only make this feature I'm proposing possible, it can make a huge assortment of complex CSS selectors like mine possible as well.
+Extending CSS variables so they can be called outside of a CSS block can not only make this feature I'm proposing possible, it can make a huge assortment of complex CSS selectors like mine possible as well.
 
 ## Example
 
@@ -115,7 +115,7 @@ _ex 4_
 If we wanted to control the active view by changing the `data-active-view` attribute value, this is the CSS we would need today:
 
 _ex 5_
-``` css
+``` CSS
 [data-view] { display: none; }
 
 [data-active-view="1"] [data-view="1"],
@@ -128,7 +128,7 @@ _ex 5_
 This is the same behavior, but using the proposed CSS features:
 
 _ex 6_
-``` css
+``` CSS
 [data-view] { display: none; }
 
 [data-active-view] {

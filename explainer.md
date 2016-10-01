@@ -1,19 +1,19 @@
 # Matching dynamic attribute values in CSS
 
 ## Contents
- - [Brief description](#Brief-description)
- - [The problem](#The-problem)
- - [Solution](#Solution)
- - [Proposed syntax](#Proposed-syntax)
+ - [Brief description](#brief-description)
+ - [The problem](#the-problem)
+ - [Solution](#solution)
+ - [Proposed syntax](#proposed-syntax)
    - [1](#1)
    - [2](#2)
    - [3](#3)
- - [Review of the syntax](#Review-of-the-syntax)
+ - [Review of the syntax](#review-of-the-syntax)
    - [1](#1-1)
    - [2](#2-1)
    - [3](#3-1)
- - [Final solution](#Final-Solution)
- - [Example](#Example)
+ - [Final solution](#final-solution)
+ - [Example](#example)
 
 ## Brief description
 This is a proposal for a new CSS feature that targets elements with matching attribute values, where the values are not explicitly stated.

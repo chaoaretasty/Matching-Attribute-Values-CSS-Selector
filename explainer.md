@@ -1,5 +1,20 @@
 # Matching dynamic attribute values in CSS
 
+## Contents
+ - [#Brief-description](Brief description)
+ - [#The-problem](The problem)
+ - [#Solution](Solution)
+ - [#Proposed syntax](Proposed syntax)
+   - [#1](1)
+   - [#2](2)
+   - [#3](3)
+ - [#Review-of-the-syntax](Review of the syntax)
+   - [#1-1](1)
+   - [#2-1](2)
+   - [#3-1](3)
+ - [#Final-solution](Final Solution)
+ - [#Example](Example)
+
 ## Brief description
 This is a proposal for a new CSS feature that targets elements with matching attribute values, where the values are not explicitly stated.
 
@@ -101,6 +116,8 @@ Extending CSS variables so they can be called outside of a CSS block can not onl
 
 ## Example
 
+[Interactive codepen](http://codepen.io/anon/pen/NRajrR)
+
 Here is a generic tab container where only one active tab can be visible at a time:
 
 _ex 4_
@@ -139,5 +156,3 @@ _ex 6_
   display: block;
 }
 ```
-
-[Interactive codepen](http://codepen.io/anon/pen/NRajrR)

@@ -18,6 +18,8 @@
 ## Brief description
 This is a proposal for a new CSS feature that targets elements with matching attribute values, where the values are not explicitly stated.
 
+Initial discussion of this feature started in a WICG discouse thread: [discourse.wicg.io/t/1687](https://discourse.wicg.io/t/selecting-matching-attribute-values-in-css/1687).
+
 This feature can be used in many ways, but it'll be explained in the context of _selecting a child element, based on its parent's attribute value_.
 
 _ex 1_
